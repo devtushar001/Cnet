@@ -1,0 +1,33 @@
+.random-array {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  padding: 40px;
+}
+
+.random-array .create-array,
+.random-array .result {
+  border: 1px solid gray;
+  padding: 40px;
+}
+
+.random-array .create-array button {
+  height: 35px;
+  padding: 7px 30px;
+  cursor: pointer;
+}
+
+.random-array .result {
+  display: grid;
+  /* margin-top: auto; */
+  gap: 5px;
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.random-array .result h1 {
+  width: 100%;
+  height: 200px;
+  background: #00509b;
+  color: #fff;
+
+}

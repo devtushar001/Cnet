@@ -1,0 +1,39 @@
+.tools-view {
+  display: grid;
+  height: auto;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  background-color: rgb(247, 253, 255);
+  margin-top: 90px;
+  padding: 40px 20px;
+  position: relative;
+}
+
+#view-full,
+#view-full-s {
+   position: absolute;
+   top: 3px;
+   right: 3px;
+   padding: 7px 20px;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+  }
+  
+  #view-full-s {
+    background:rgb(125, 52, 52) ;
+  }
+  #view-full {
+  background: rgb(67, 103, 143);
+
+}
+
+#view-large {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 110vh;
+  z-index: 7000;
+  right: 0;
+}

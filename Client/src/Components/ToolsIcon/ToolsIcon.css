@@ -1,0 +1,41 @@
+.spl-tools-list {
+  width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spl-tools-list-2 {
+  width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spl-tools-list .tools,
+.spl-tools-list-2 .tools {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.spl-tools-list .tools .info,
+.spl-tools-list-2 .tools .info {
+  width: 55px;
+  height: 55px;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgb(0, 136, 215);
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.spl-tools-list .tools .info img,
+.spl-tools-list-2 .info img {
+  width: 80%;
+}
