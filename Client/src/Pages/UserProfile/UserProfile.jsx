@@ -38,7 +38,7 @@ const UserProfile = () => {
   useEffect(() => {
     fetchUser();
     window.scrollTo(0, 0); // Scroll to top on mount
-  }, [backend_url]); // Optional: Dependency on backend_url to re-fetch when changed
+  }, []); // Optional: Dependency on backend_url to re-fetch when changed
 
   return (
     <div className="user-prfl">

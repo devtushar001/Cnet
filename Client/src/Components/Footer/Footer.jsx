@@ -12,10 +12,10 @@ const Footer = () => {
 
           <div className="left">
             <div className="logo">
-              <h1 id="i">T</h1>
-              <h1 id="r">R</h1>
-              <h1 id="o">o</h1>
-              <h1 id="c">c</h1>
+              <h1 id="i">c</h1>
+              <h1 id="r">N</h1>
+              <h1 id="o">e</h1>
+              <h1 id="c">t</h1>
               <br />
               <h1 id="tools">Tools</h1>
             </div>
