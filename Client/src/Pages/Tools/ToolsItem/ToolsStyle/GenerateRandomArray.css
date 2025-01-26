@@ -18,16 +18,17 @@
 }
 
 .random-array .result {
-  display: grid;
-  /* margin-top: auto; */
+  flex-wrap: wrap;
+  display: flex;
+  align-items: flex-end;
   gap: 5px;
-  grid-template-columns: repeat(15, 1fr);
+  justify-content: start;
 }
 
 .random-array .result h1 {
-  width: 100%;
+  width: 50px;
   height: 200px;
   background: #00509b;
   color: #fff;
-
+   
 }

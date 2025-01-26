@@ -9,7 +9,7 @@ const LoginSignup = () => {
   const [userData, setUserData] = useState({
     name: '',
     email: '',
-    contact: '',
+    contact: '+91-547-895-48',
     password: '',
     confirmPassword: '',
   });
@@ -81,14 +81,14 @@ const LoginSignup = () => {
         </button>
       </div>
       <div className="right">
-        <h1>Welcome User!!!</h1>
+        {/* <h1>Welcome User!!!</h1> */}
         {signUp && (
           <input value={userData.name} onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))} placeholder="Enter your full name" type="text" />
         )}
         <input value={userData.email} onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value }))} placeholder="Enter your email" type="email" />
-        {signUp && (
+        {/* {signUp && (
           <input value={userData.contact} onChange={(e) => setUserData((prev) => ({ ...prev, contact: e.target.value }))} placeholder="Enter your contact number" type="tel" />
-        )}
+        )} */}
         <input value={userData.password} onChange={(e) => setUserData((prev) => ({ ...prev, password: e.target.value }))} placeholder={signUp ? "Create password." : "Enter Password."} type="password" />
         {signUp && (
           <input value={userData.confirmPassword} onChange={(e) => setUserData((prev) => ({ ...prev, confirmPassword: e.target.value }))} placeholder="Confirm password" type="password" />

@@ -8,7 +8,8 @@ export const EscomContext = createContext(null);
 const EscomContextProvider = ({ children }) => {
   const [data, setData] = useState("");
   const [toolsComponents, setToolsComponents] = useState({});
- const [sideBar, setSidekBar] = useState(false); // To show all tools in the sidebar
+ const [sideBar, setSideBar] = useState(false); // To show all tools in the sidebar
+ const [searchPage, setSearchPage] = useState(false);
 
  
   useEffect(() => {
@@ -26,9 +27,11 @@ const EscomContextProvider = ({ children }) => {
     setData,
     escomData,
     toolsComponents,
-    setSidekBar,
+    setSideBar,
     sideBar,
-    backend_url
+    backend_url,
+    searchPage,
+    setSearchPage
   };
 
   return (

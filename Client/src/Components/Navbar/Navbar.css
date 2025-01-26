@@ -15,13 +15,11 @@
 }
 
 .navbar .left-section {
-  width: 100px;
-  height: 100%;
   overflow: hidden;
 }
 
 .navbar .left-section img {
-  height: 100%;
+  height: 127px;
   cursor: pointer;
 }
 .navbar .right-section {

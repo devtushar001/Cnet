@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './ToolsStyle/GenerateRandomArray.css';
 
 const GenerateRandomArray = () => {
@@ -6,11 +6,20 @@ const GenerateRandomArray = () => {
 
   function generateRandomArray() {
     const newArray = [];
-    for (let i = 0; i < 20; i++) { // Fixed range (0 to 19) for 20 items
+
+    for (let i = 0; i < 17; i++) { // Fixed range (0 to 19) for 20 items
       newArray.push(Math.ceil(Math.random() * 100));
     }
     setArray(newArray); // Update state with a new array
   }
+
+ 
+
+  useEffect(() => {
+    setInterval(() => {
+      generateRandomArray()
+    }, 200)
+  }, [])
 
   return (
     <>
@@ -22,7 +31,7 @@ const GenerateRandomArray = () => {
           {array.map((item, i) => {
             return (
               <h1
-                style={{ height: `${(item + 40)*2}px` }} // Correct inline style as an object
+                style={{ height: `${(item + 40) * 2}px` }} // Correct inline style as an object
                 className="arr"
                 key={i}
               >

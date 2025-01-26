@@ -5,6 +5,7 @@ import shuffle from './shuffle.png';
 import sort_descending from './sort-descending.png';
 import swap from './swap.png';
 import thermometer from './thermometer.png';
+import cNet from './cNet.png';
 import app_store_icon from './app-store.png'
 import clc_md from './CalculateFactorial.txt';
 import add_icon from './add.png';
@@ -40,6 +41,7 @@ import GenerateRandomArray from '../Pages/Tools/ToolsItem/GenerateRandomArray';
 import TodoList from '../Pages/Tools/ToolsItem/TodoList';
 import RockPaperScissor from '../Pages/Tools/ToolsItem/RockPaperScissor';
 import CrudOperation from '../Pages/Tools/GamesItem/CrudOperation';
+import RazorPay from '../Pages/Tools/GamesItem/RazorPay';
 
 
 export const assets = {
@@ -67,7 +69,8 @@ export const assets = {
   app_icon,
   slide_left,
   slide_right,
-  user_icon
+  user_icon,
+  cNet
 };
 
 export const escomData = [
@@ -198,5 +201,14 @@ export const escomData = [
     category: "intermideate",
     image: app_store_icon,
     url: CrudOperation 
+  }
+  ,
+  {
+    _id: "17",
+    name: "Razor Pay Integration",
+    nickname: "Payment gateway",
+    category: "advanced",
+    image: app_icon,
+    url: RazorPay 
   }
 ];
