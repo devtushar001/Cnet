@@ -36,7 +36,7 @@
   cursor: pointer; /* Pointer cursor */
   /* border-radius: 5px; Rounded corners */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; /* Button shadow */
-  transition: background 0.3s ease; /* Smooth transition for hover effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 /* Hover effect for the button */
