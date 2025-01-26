@@ -42,6 +42,7 @@ import TodoList from '../Pages/Tools/ToolsItem/TodoList';
 import RockPaperScissor from '../Pages/Tools/ToolsItem/RockPaperScissor';
 import CrudOperation from '../Pages/Tools/GamesItem/CrudOperation';
 import RazorPay from '../Pages/Tools/GamesItem/RazorPay';
+import GenerateColor from '../Pages/Tools/CssItem/GenerateColor';
 
 
 export const assets = {
@@ -210,5 +211,13 @@ export const escomData = [
     category: "advanced",
     image: app_icon,
     url: RazorPay 
+  },
+  {
+    _id: "18",
+    name: "Generate Colors",
+    nickname: "Random colors",
+    category: "basic",
+    image: app_icon,
+    url: GenerateColor 
   }
 ];
