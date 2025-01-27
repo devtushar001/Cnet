@@ -16,3 +16,31 @@
   width: 90vw;
   background: transparent;
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .home .slider {
+    margin-top: 100px;
+    margin-bottom: 70px;
+    height: 35vh; /* Slightly reduce height for medium screens */
+    width: 95vw; /* Increase width utilization */
+  }
+}
+
+@media (max-width: 768px) {
+  .home .slider {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    height: 30vh; /* Reduce height for smaller screens */
+    width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .home .slider {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    height: 25vh; /* Further reduce height for mobile devices */
+    width: 100%; /* Utilize full screen width */
+  }
+}

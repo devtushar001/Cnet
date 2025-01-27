@@ -1,7 +1,7 @@
 .tools-view {
   display: grid;
   height: auto;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr); /* Default for larger screens */
   gap: 15px;
   background-color: rgb(247, 253, 255);
   margin-top: 90px;
@@ -11,21 +11,21 @@
 
 #view-full,
 #view-full-s {
-   position: absolute;
-   top: 3px;
-   right: 3px;
-   padding: 7px 20px;
-   color: #fff;
-   border: none;
-   cursor: pointer;
-  }
-  
-  #view-full-s {
-    background:rgb(125, 52, 52) ;
-  }
-  #view-full {
-  background: rgb(67, 103, 143);
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 7px 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
 
+#view-full-s {
+  background: rgb(125, 52, 52);
+}
+
+#view-full {
+  background: rgb(67, 103, 143);
 }
 
 #view-large {
@@ -36,4 +36,43 @@
   height: 110vh;
   z-index: 7000;
   right: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .tools-view {
+    grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for medium screens */
+    gap: 20px; /* Increase gap for better spacing */
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .tools-view {
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns for smaller screens */
+    gap: 20px;
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-view {
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 2 columns for tablets */
+    gap: 15px;
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tools-view {
+    grid-template-columns:1fr 1fr; /* Single column for mobile devices */
+    gap: 10px;
+    padding: 15px 10px;
+  }
+
+  #view-full,
+  #view-full-s {
+    padding: 5px 15px; /* Reduce button size on smaller screens */
+    font-size: 12px;
+  }
 }
