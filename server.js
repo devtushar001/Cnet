@@ -7,6 +7,7 @@ import rateLimit from 'express-rate-limit';
 import userRouter from './Router/userRouter.js';
 import connectDB from './Config/connectDB.js';
 import crudRouter from './Router/crudRouter.js';
+import razorPayRouter from './Router/razorPayRouter.js';
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ connectDB(mongo_url);
 // Routes
 app.use('/api/user', userRouter);
 app.use('/api/crud', crudRouter);
+app.use('/api/razorpay', razorPayRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({

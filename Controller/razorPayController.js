@@ -8,56 +8,61 @@ export const createRazorPayOrderController = async (req, res) => {
   if (!razorPayKeyId || !razorPayKeySecret) {
     return res.status(404).json({
       success: false,
-      message: `jhjg`
-    })
+      message: `Razorpay credentials not found`
+    });
   }
 
-  //Don't get the amount from frontend
   const { courseId, amount } = req.body;
+  console.log(razorPayKeyId, razorPayKeySecret);
+  console.log(courseId, amount);
 
-  // Create order
   const rPI = razorPayInstance(razorPayKeyId, razorPayKeySecret);
 
   const options = {
-    amount: amount * 100,
+    amount: amount * 100, // Amount in paise
     currency: "INR",
-    receipt: 'reciept_order_1'
+    receipt: `receipt_order_${courseId}` // Using the courseId as part of the receipt to keep it unique
   };
 
   try {
-
-    rPI.orders.create(options, (err, order) => {
-      if (err) {
-        return res.status(500).json({
-          success: false,
-          message: `Razorpay create orders ${err}`
-        })
-      }
-      return res.status(200).json(order)
-    })
-  } catch (error) {
-    return res.status(501).json({
+    const order = await rPI.orders.create(options); // Use async/await here
+    return res.status(200).json(order); // Send the created order to the client
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
       success: false,
-      message: `Razorpay got ${error}`
-    })
+      message: `Razorpay order creation failed: ${err.message}`
+    });
   }
+};
 
-}
 
 export const verifyRazorPayOrderController = async (req, res) => {
   const { order_id, payment_id, signature } = req.body;
 
+  // Validate the presence of the required fields
+  if (!order_id || !payment_id || !signature) {
+    return res.status(400).json({
+      success: false,
+      message: "Missing required fields"
+    });
+  }
 
-  //Create hmac object
+  // Create HMAC object for signature verification
   const hmac = crypto.createHmac("sha256", razorPayKeySecret);
-  hmac.update(order_id + "|" + payment_id);
+  hmac.update(`${order_id}|${payment_id}`);
 
   const rPS = hmac.digest('hex');
 
   if (rPS === signature) {
     return res.status(200).json({
       success: true,
-      message: `Payment variefied`
-    })
+      message: "Payment verified successfully"
+    });
+  } else {
+    return res.status(400).json({
+      success: false,
+      message: "Payment verification failed"
+    });
   }
-}
+};
