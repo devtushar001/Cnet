@@ -33,7 +33,7 @@ const RazorPay = () => {
       console.log(result);
 
       const paymentObject = new window.Razorpay({
-        key: "rzp_test_Zp5wSd4qK9Q4Tm", // Replace with your Razorpay Key
+        key: "rzp_test_481XWM263JxEp8", // Replace with your Razorpay Key
         amount: result.amount, // Ensure this is in paise (multiply amount by 100 if needed)
         currency: "INR",
         order_id: result.razorpay_order_id, // Use the order ID from the backend
