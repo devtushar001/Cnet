@@ -5,6 +5,7 @@ import shuffle from './shuffle.png';
 import sort_descending from './sort-descending.png';
 import swap from './swap.png';
 import thermometer from './thermometer.png';
+import timer_icon from './fast-time.png'
 import cNet from './cNet.png';
 import app_store_icon from './app-store.png'
 import clc_md from './CalculateFactorial.txt';
@@ -43,6 +44,7 @@ import RockPaperScissor from '../Pages/Tools/ToolsItem/RockPaperScissor';
 import CrudOperation from '../Pages/Tools/GamesItem/CrudOperation';
 import RazorPay from '../Pages/Tools/GamesItem/RazorPay';
 import GenerateColor from '../Pages/Tools/CssItem/GenerateColor';
+import Timer from '../Components/Projects/Timer';
 
 
 export const assets = {
@@ -71,7 +73,8 @@ export const assets = {
   slide_left,
   slide_right,
   user_icon,
-  cNet
+  cNet,
+  timer_icon
 };
 
 export const escomData = [
@@ -181,8 +184,8 @@ export const escomData = [
   },
   {
     _id: "14",
-    name: "Todo List",
-    nickname: "Todo",
+    name: "Todo list app",
+    nickname: "Todo App",
     category: "basic",
     image: app_icon,
     url: TodoList 
@@ -190,15 +193,15 @@ export const escomData = [
   {
     _id: "15",
     name: "Rock paper scissor",
-    nickname: "Rock Paper",
+    nickname: "R-P-C",
     category: "basic",
     image: add_icon,
     url: RockPaperScissor 
   },
   {
     _id: "16",
-    name: "CRUD Operation",
-    nickname: "Crud",
+    name: "Crud operation in mongoose",
+    nickname: "CRUD",
     category: "intermideate",
     image: app_store_icon,
     url: CrudOperation 
@@ -206,18 +209,26 @@ export const escomData = [
   ,
   {
     _id: "17",
-    name: "Razor Pay Integration",
-    nickname: "Payment gateway",
+    name: "Razorpay payment gateway",
+    nickname: "Razorpay",
     category: "advanced",
     image: app_icon,
     url: RazorPay 
   },
   {
     _id: "18",
-    name: "Generate Colors",
-    nickname: "Random colors",
+    name: "Generate hexa code and rgb",
+    nickname: "Color code",
     category: "basic",
     image: app_icon,
     url: GenerateColor 
+  },
+  {
+    _id: "19",
+    name: "Count Down Timer",
+    nickname: "Timer",
+    category: "basic",
+    image: timer_icon,
+    url: Timer 
   }
 ];
