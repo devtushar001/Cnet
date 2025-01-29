@@ -23,20 +23,48 @@
   width: 20px;
   height: 20px;
   background-color: blue;
-  z-index: 2;
+  z-index: 4500;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+
 .timer .clock .clock_center .hour {
-  position: absolute;
-  display: flex;
-  align-items: center;
+  width: 190px;
+  height:  190px;
+  transform: rotate(85deg);
+}
+
+.timer .clock .clock_center .minute {
+  transform: rotate(160deg);
   width: 240px;
-  height: 240px;
-  /* background: goldenrod; */
-  bottom: 50%;
-  transform: rotate(190deg);
-  border: 1px solid gray;
+  background-color: rebeccapurple;
+  height: 140px;
+}
+
+.timer .clock .clock_center .second {
+  transform: rotate(60deg);
+  width: 340px;
+  height: 340px;
+}
+
+.timer .clock .clock_center .hour .hrs {
+  background-color: rgb(255, 106, 0);
+  width: 10px;
+  height: 50%;
+
+}
+
+.timer .clock .clock_center .hour .mints {
+  background-color: rgb(0, 68, 146);
+  /* width: 8px;
+  height: 50%; */
+}
+
+.timer .clock .clock_center .hour .secs {
+  background-color: yellow;
+  width: 50%;
+  height: 50%;
+
 }

@@ -7,9 +7,15 @@ const Timer = () => {
          <div className="timer">
             <div className="clock">
                <div className="clock_center">
-                  <div className="hour"></div>
-                  <div className="minute"></div>
-                  <div className="seconds"></div>
+                  <div className="hour">
+                     <div className="hrs"></div>
+                  </div>
+                  <div className="minute">
+                     <div className="mints"></div>
+                  </div>
+                  <div className="seconds">
+                     <div className="secs"></div>
+                  </div>
                </div>
             </div>
          </div>
