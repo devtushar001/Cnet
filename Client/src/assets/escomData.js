@@ -10,6 +10,7 @@ import cNet from './cNet.png';
 import app_store_icon from './app-store.png'
 import clc_md from './CalculateFactorial.txt';
 import add_icon from './add.png';
+import two_sum_icon from './lines.png';
 import app_icon from './app.png';
 import clock_icon from './clock.png';
 import SortArrayAscending from '../Pages/Tools/SortArrayAscending';
@@ -45,6 +46,7 @@ import CrudOperation from '../Pages/Tools/GamesItem/CrudOperation';
 import RazorPay from '../Pages/Tools/GamesItem/RazorPay';
 import GenerateColor from '../Pages/Tools/CssItem/GenerateColor';
 import Timer from '../Components/Projects/Timer';
+import twoSum from '../Components/Projects/twoSum';
 
 
 export const assets = {
@@ -230,5 +232,13 @@ export const escomData = [
     category: "basic",
     image: timer_icon,
     url: Timer 
+  },
+  {
+    _id: "20",
+    name: "Two sum returninng index",
+    nickname: "Two sum",
+    category: "basic",
+    image: two_sum_icon,
+    url: twoSum 
   }
 ];
