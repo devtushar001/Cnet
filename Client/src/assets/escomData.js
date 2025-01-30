@@ -47,6 +47,8 @@ import RazorPay from '../Pages/Tools/GamesItem/RazorPay';
 import GenerateColor from '../Pages/Tools/CssItem/GenerateColor';
 import Timer from '../Components/Projects/Timer';
 import twoSum from '../Components/Projects/twoSum';
+import TextToVoice from '../Components/Projects/TextToVoice';
+import voice_search_icon from './voice-search.png'
 
 
 export const assets = {
@@ -76,7 +78,8 @@ export const assets = {
   slide_right,
   user_icon,
   cNet,
-  timer_icon
+  timer_icon,
+  voice_search_icon
 };
 
 export const escomData = [
@@ -240,5 +243,13 @@ export const escomData = [
     category: "basic",
     image: two_sum_icon,
     url: twoSum 
+  },
+  {
+    _id: "21",
+    name: "Text to voice generator",
+    nickname: "Text-Voice",
+    category: "basic",
+    image: voice_search_icon,
+    url: TextToVoice 
   }
 ];
