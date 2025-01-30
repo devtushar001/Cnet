@@ -1,0 +1,35 @@
+.voice-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-input {
+  margin-bottom: 20px;
+}
+
+.voice-settings {
+  margin-bottom: 20px;
+}
+
+.voice-output .vibrations {
+  width: 50px;
+  height: 50px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  transition: transform 0.1s ease-in-out;
+  margin-top: 20px;
+}
+
+.voice-output.speaking .vibrations {
+  animation: vibration 0.2s infinite;
+}
+
+@keyframes vibration {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+}

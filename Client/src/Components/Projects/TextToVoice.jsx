@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import './ProjectsStyle/TextToVoice.css'
+import './ProjectsStyle/TextToVoice.css';
 
 const TextToVoice = () => {
    let [text, setText] = useState('');
    let [voices, setVoices] = useState([]);
    let [selectedVoice, setSelectedVoice] = useState(null);
+   let [isSpeaking, setIsSpeaking] = useState(false);
 
    // Function to generate the voice
    function generateVoice() {
@@ -19,7 +20,17 @@ const TextToVoice = () => {
          utterance.voice = selectedVoice;
       }
 
+      // Set up events for speech synthesis
+      utterance.onstart = () => {
+         setIsSpeaking(true); // Start vibration when speaking begins
+      };
+
+      utterance.onend = () => {
+         setIsSpeaking(false); // Stop vibration when speaking ends
+      };
+
       window.speechSynthesis.speak(utterance);
+      console.log(window.speechSynthesis.speak(utterance));
    }
 
    // Fetch available voices when the component mounts
@@ -46,9 +57,9 @@ const TextToVoice = () => {
       <>
          <div className="voice-text">
             <div className="text-input">
-               <textarea 
-                  value={text} 
-                  onChange={(e) => setText(e.target.value)} 
+               <textarea
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
                   placeholder="Enter text here"
                />
                <button onClick={generateVoice}>Generate</button>
@@ -65,12 +76,12 @@ const TextToVoice = () => {
                   ))}
                </select>
             </div>
-            <div className="voice-output">
+            <div className={`voice-output ${isSpeaking ? 'speaking' : ''}`}>
                <div className="vibrations"></div>
             </div>
          </div>
       </>
    );
-}
+};
 
 export default TextToVoice;
