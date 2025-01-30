@@ -9,7 +9,7 @@ const TextToVoice = () => {
 
    // Function to generate the voice
    function generateVoice() {
-      if (text.trim() === '') {
+      if (text.trim() === ' ') {
          text = 'Please enter some text.';
       }
 
@@ -63,8 +63,6 @@ const TextToVoice = () => {
                   placeholder="Enter text here"
                />
                <button onClick={generateVoice}>Generate</button>
-            </div>
-            <div className="voice-settings">
                <label htmlFor="voices">Choose a voice: </label>
                <select
                   id="voices"
