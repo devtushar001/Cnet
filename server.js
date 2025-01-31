@@ -9,12 +9,21 @@ import connectDB from './Config/connectDB.js';
 import crudRouter from './Router/crudRouter.js';
 import razorPayRouter from './Router/razorPayRouter.js';
 import imageRouter from './Router/imageRoutes.js';
+import cloudinarySetup from './Config/cloudinarySetup.js';
 
 dotenv.config();
 
 // Validate environment variables
 const port = process.env.PORT;
 const mongo_url = process.env.MONGODB_URL;
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const cloudApiKey = process.env.CLOUDINARY_API_KEY;
+const cloudApiSecret = process.env.CLOUDINARY_API_SECRET;
+
+console.log(cloudName, cloudApiKey, cloudApiSecret)
+
+
+
 if (!port || !mongo_url) {
   throw new Error("Missing required environment variables: PORT or MONGODB_URL");
 }
@@ -34,8 +43,11 @@ app.use(rateLimit({
 app.use(express.json());
 app.use(cookieParser());
 
+
+
 // Database connection
 connectDB(mongo_url);
+cloudinarySetup(cloudName, cloudApiKey, cloudApiSecret)
 
 // Routes
 app.use('/api/user', userRouter);

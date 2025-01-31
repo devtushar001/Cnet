@@ -1,22 +1,17 @@
 import express from "express";
 import multer from "multer";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
-import cloudinary from "../config/cloudinary.js";
-import { getImageController, uploadImageController } from "../Controller/imageController.js";
+import { deleteImageController, getImageController, uploadImageController } from "../Controller/imageController.js";
 
 const imageRouter = express.Router();
 
-const storage = new CloudinaryStorage({
-  cloudinary,
-  params: {
-    folder: "mern-uploads",
-    allowed_formats: ["jpg", "png", "jpeg"],
-  },
-});
+// Configure Multer to use memory storage
+const storage = multer.memoryStorage(); 
 
 const upload = multer({ storage });
 
 imageRouter.post("/upload", upload.single("image"), uploadImageController);
-imageRouter.get("/images", getImageController);
+imageRouter.get("/image", getImageController);
+imageRouter.delete("/delete", deleteImageController);
+
 
 export default imageRouter;

@@ -12,7 +12,6 @@ import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import LoginSignup from './Pages/LoginSignup/LoginSignup';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
-import ImageUpload from './Components/ImageUpload/ImageUpload';
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Route path='/user-profile' element={<UserProfile />}/>
         <Route path='/forgot-password' element={<ForgotPassword />}/>
       </Routes>
-      <ImageUpload/>
       <Footer />
     </>
   );

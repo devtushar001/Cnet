@@ -3,10 +3,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
-export default cloudinary;
+
+const cloudinarySetup = (cloudeName, cloudApiKey, cloudApiSecret) => {
+  cloudinary.config({
+    cloud_name: cloudeName,
+    api_key: cloudApiKey,
+    api_secret: cloudApiSecret,
+  });
+}
+
+
+export default cloudinarySetup;
