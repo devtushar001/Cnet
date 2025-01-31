@@ -8,6 +8,7 @@ import userRouter from './Router/userRouter.js';
 import connectDB from './Config/connectDB.js';
 import crudRouter from './Router/crudRouter.js';
 import razorPayRouter from './Router/razorPayRouter.js';
+import imageRouter from './Router/imageRoutes.js';
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ connectDB(mongo_url);
 app.use('/api/user', userRouter);
 app.use('/api/crud', crudRouter);
 app.use('/api/razorpay', razorPayRouter);
+app.use('/api/images', imageRouter)
 
 app.get('/', (req, res) => {
   res.status(200).json({
