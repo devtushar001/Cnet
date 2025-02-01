@@ -20,7 +20,7 @@ const EscomContextProvider = ({ children }) => {
     setToolsComponents(toolComponents);
   }, []);
 
-  const backend_url = "https://cnet.onrender.com";
+  const backend_url = "http://localhost:30017";
 
   const contextValue = {
     data,

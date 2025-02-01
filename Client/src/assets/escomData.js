@@ -50,7 +50,9 @@ import twoSum from '../Components/Projects/twoSum';
 import TextToVoice from '../Components/Projects/TextToVoice';
 import voice_search_icon from './voice-search.png'
 import ImageUploader from '../Components/Projects/ImageUploder';
-import image_upload_icon from './image-upload.png'
+import image_upload_icon from './image-upload.png';
+import text_editor_icon from './content-creator.png'
+import TextEditor from '../Components/Projects/TextEditor';
 
 
 export const assets = {
@@ -82,7 +84,8 @@ export const assets = {
   cNet,
   timer_icon,
   voice_search_icon,
-  image_upload_icon
+  image_upload_icon,
+  text_editor_icon
 };
 
 export const escomData = [
@@ -262,5 +265,13 @@ export const escomData = [
     category: "advanced",
     image: image_upload_icon,
     url: ImageUploader 
+  },
+  {
+    _id: "23",
+    name: "Text Editor",
+    nickname: "Text Board",
+    category: "advanced",
+    image: text_editor_icon,
+    url: TextEditor 
   }
 ];
