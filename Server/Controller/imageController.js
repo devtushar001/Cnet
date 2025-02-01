@@ -50,18 +50,15 @@ export const getImageController = async (req, res) => {
 
 export const deleteImageController = async (req, res) => {
   try {
-    const { id } = req.params; // Get image ID from URL params
-
-    // Find the image in the database
+    const {id} = req.body;
+console.log(id)
     const image = await imageModel.findById(id);
     if (!image) {
       return res.status(404).json({ message: "Image not found" });
     }
 
-    // Delete the image from Cloudinary using publicId
-    await cloudinary.uploader.destroy(image.publicId);
+    await cloudinary.uploader.destroy(image.imageId); // FIXED: use imageId instead of publicId
 
-    // Remove image record from MongoDB
     await imageModel.findByIdAndDelete(id);
 
     res.status(200).json({ message: "Image deleted successfully" });
