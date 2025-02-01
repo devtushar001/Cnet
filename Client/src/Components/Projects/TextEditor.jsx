@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useRef, useContext, useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { EscomContext } from "../../Context/escomContext";
+import { debounce } from "lodash";
 
 const modules = {
   toolbar: [
@@ -34,75 +35,43 @@ const formats = [
 ];
 
 const TextEditor = () => {
-  const [value, setValue] = useState("");  // Store the editor's content
-  // const [getValue, setGetValue] = useState([]);
-  const {getValue, deleteContentm, getFetchData } = useContext(EscomContext);
+  const quillRef = useRef(null); // Ref for ReactQuill
+  const [value, setValue] = useState(""); // Store editor content
+  const { getValue, deleteContent, getFetchData } = useContext(EscomContext);
 
-  // Function to save content to the database
+  // Save content to database
   const saveToDatabase = async () => {
     try {
       const response = await fetch("http://localhost:30017/api/text-edit/save", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ content: value }), // Send editor content as JSON
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: value }),
       });
 
       const data = await response.json();
       alert(data.message); // Show success message
-      getFetchData();
+      debouncedFetchData(); // Refresh fetched data
     } catch (error) {
       alert("Failed to save");
     }
   };
 
-  // Function to fetch data from the database
-  // const getFetchData = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:30017/api/text-edit/get", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
+  // Debounce API calls to prevent 429 errors
+  const debouncedFetchData = debounce(() => {
+    getFetchData();
+  }, 1000); // 1-second delay
 
-  //     const data = await response.json();
-  //     setGetValue(data);  // Set fetched data in state
-  //   } catch (error) {
-  //     alert("Failed to fetch data");
-  //   }
-  // };
-
-  // Function to delete content from the database
-  // const deleteContent = async (id) => {
-  //   try {
-  //     const response = await fetch(`http://localhost:30017/api/text-edit/delete`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-
-  //     const data = await response.json();
-  //     if (data.success) {
-  //       // Remove deleted content from UI
-  //       setGetValue(getValue.filter(content => content.id !== id));
-  //       alert("Content deleted successfully");
-  //     } else {
-  //       alert("Failed to delete content");
-  //     }
-  //   } catch (error) {
-  //     alert("Failed to delete content");
-  //   }
-  // };
+  useEffect(() => {
+    console.log("Editor Content:", value);
+  }, [value]);
 
   return (
     <div className="text-editor-container" style={{ maxWidth: "95%", padding: "20px" }}>
       <ReactQuill
+        ref={quillRef}
         theme="snow"
-        value={value}  // Bind the editor to the value state
-        onChange={setValue}  // Update value when the content changes
+        value={value}
+        onChange={setValue}
         modules={modules}
         formats={formats}
       />
