@@ -12,11 +12,13 @@ import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import LoginSignup from './Pages/LoginSignup/LoginSignup';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <>
       <Navbar />
+      <ToastContainer/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/projects' element={<ToolsView />}/>

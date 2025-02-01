@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { escomData } from '../assets/escomData';
+import { toast } from "react-toastify";
 
 // Create the context
 export const EscomContext = createContext(null);
@@ -12,7 +13,7 @@ const EscomContextProvider = ({ children }) => {
   const [searchPage, setSearchPage] = useState(false);
   const [getValue, setGetValue] = useState([]);
 
-  const backend_url = "https://cnet.onrender.com";
+  const backend_url = "http://localhost:30017";
 
   // Function to fetch data from the database
   const getFetchData = async () => {
@@ -46,10 +47,11 @@ const EscomContextProvider = ({ children }) => {
       getFetchData();
       if (data.success) {
         // Remove deleted content from UI
+        toast.success(data.message);
         setGetValue(getValue.filter(content => content._id !== id));
-        window.location.reload();        
+        getFetchData();        
       } else {
-        alert("Failed to delete content");
+        toast.error("Failed to delete content");
       }
     } catch (error) {
       alert("Failed to delete content");
