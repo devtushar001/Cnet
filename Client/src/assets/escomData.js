@@ -21,7 +21,7 @@ import ReverseString from '../Pages/Tools/ToolsItem/ReverseString';
 import FindLargestNumber from '../Pages/Tools/ToolsItem/FindLargestNumber';
 import ConvertTemperature from '../Pages/Tools/ToolsItem/ConvertTemperature';
 import CheckLeapYear from '../Pages/Tools/ToolsItem/CheckLeapYear';
-import whiteboard from '../Pages/Tools/ToolsItem/WhiteBoard';
+// import whiteboard from '../Pages/Tools/ToolsItem/WhiteBoard';
 import AnalogClock from '../Components/AnalogComponent/AnalogComponent';
 import youtube_icon from './youtube.png';
 import video_icon from './video.png';
@@ -96,14 +96,6 @@ export const escomData = [
     category: "basic",
     image: range,
     url: GetPrimeOnRange
-  },
-  {
-    _id: "2",
-    name: "White board.",
-    nickname: "Calc",
-    category: "basic",
-    image: sort_descending,
-    url: whiteboard
   },
   {
     _id: "3",
