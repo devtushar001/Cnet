@@ -10,6 +10,7 @@ import crudRouter from './Router/crudRouter.js';
 import razorPayRouter from './Router/razorPayRouter.js';
 import imageRouter from './Router/imageRoutes.js';
 import cloudinarySetup from './Config/cloudinarySetup.js';
+import textEditorRouter from './Router/textEditorRoutes.js';
 
 dotenv.config();
 
@@ -53,7 +54,8 @@ cloudinarySetup(cloudName, cloudApiKey, cloudApiSecret)
 app.use('/api/user', userRouter);
 app.use('/api/crud', crudRouter);
 app.use('/api/razorpay', razorPayRouter);
-app.use('/api/images', imageRouter)
+app.use('/api/images', imageRouter);
+app.use('/api/text-edit', textEditorRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({
