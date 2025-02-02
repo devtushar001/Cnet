@@ -58,46 +58,6 @@ const TextEditor = () => {
     }
   };
 
-  // Function to fetch data from the database
-  // const getFetchData = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:30017/api/text-edit/get", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-
-  //     const data = await response.json();
-  //     setGetValue(data);  // Set fetched data in state
-  //   } catch (error) {
-  //     alert("Failed to fetch data");
-  //   }
-  // };
-
-  // Function to delete content from the database
-  // const deleteContent = async (id) => {
-  //   try {
-  //     const response = await fetch(`http://localhost:30017/api/text-edit/delete`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-
-  //     const data = await response.json();
-  //     if (data.success) {
-  //       // Remove deleted content from UI
-  //       setGetValue(getValue.filter(content => content.id !== id));
-  //       alert("Content deleted successfully");
-  //     } else {
-  //       alert("Failed to delete content");
-  //     }
-  //   } catch (error) {
-  //     alert("Failed to delete content");
-  //   }
-  // };
-
   return (
     <div className="text-editor-container" style={{ maxWidth: "95%", padding: "20px" }}>
       <ReactQuill
