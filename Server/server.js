@@ -30,7 +30,7 @@ const app = express();
 // Middleware
 app.use(helmet()); // Secure HTTP headers
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-production-domain.com'],
+  origin: ['https://cnet-backend.onrender.com', 'https://cnet-backend.onrender.com'],
   credentials: true, // Allow cookies
 }));
 app.use(rateLimit({
