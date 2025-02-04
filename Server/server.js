@@ -30,7 +30,7 @@ const app = express();
 // Middleware
 app.use(helmet()); // Secure HTTP headers
 app.use(cors({
-  origin: ['https://cnet-backend.onrender.com', 'https://cnet-backend.onrender.com'],
+  origin: ['https://cnet.onrender.com', 'https://cnet.onrender.com'],
   credentials: true, // Allow cookies
 }));
 app.use(rateLimit({
