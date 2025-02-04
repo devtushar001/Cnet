@@ -7,12 +7,13 @@ const TextEditor = () => {
   const editor = useRef(null); // Fix: Define ref for JoditEditor
   const [value, setValue] = useState(""); // Fix: Correct state naming
 
-  const { getValue, deleteContent, getFetchData, backend_ur } = useContext(EscomContext);
+  const { getValue, deleteContent, getFetchData, backend_url } = useContext(EscomContext);
+  console.log(backend_url);
 
   // Function to save content to the database
   const saveToDatabase = async () => {
     try {
-      const response = await fetch(`${backend_ur}/api/text-edit/save`, {
+      const response = await fetch(`${backend_url}/api/text-edit/save`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

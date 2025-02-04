@@ -28,17 +28,20 @@ if (!port || !mongo_url) {
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(helmet()); // Secure HTTP headers
-app.use(cors({
-  origin: ['https://cnet.onrender.com', 'https://cnet.onrender.com'],
-  credentials: true, // Allow cookies
-}));
+app.use(express.json());
+app.use(cookieParser());
+
+// app.use(cors({
+//   origin: ['https://cnet.onrender.com', 'https://cnet.onrender.com'],
+//   credentials: true, // Allow cookies
+// }));
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // Limit each IP to 100 requests per window
 }));
-app.use(express.json());
-app.use(cookieParser());
+
 
 
 
