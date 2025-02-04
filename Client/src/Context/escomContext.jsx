@@ -13,7 +13,7 @@ const EscomContextProvider = ({ children }) => {
   const [searchPage, setSearchPage] = useState(false);
   const [getValue, setGetValue] = useState([]);
 
-  const backend_url = "https://cnet.onrender.com";
+  const backend_url = "https://cnet-backend.onrender.com";
 
   // Function to fetch data from the database
   const getFetchData = async () => {

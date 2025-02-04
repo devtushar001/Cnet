@@ -20,7 +20,7 @@ export const uploadImageController = async (req, res) => {
       imageUrl: result.secure_url,
       imageId: result.public_id
     });
-    
+
     res.status(200).json({ message: "Image uploaded successfully!", savedImage });
 
   } catch (error) {
@@ -50,8 +50,7 @@ export const getImageController = async (req, res) => {
 
 export const deleteImageController = async (req, res) => {
   try {
-    const {id} = req.body;
-console.log(id)
+    const { id } = req.body;
     const image = await imageModel.findById(id);
     if (!image) {
       return res.status(404).json({ message: "Image not found" });
@@ -63,7 +62,6 @@ console.log(id)
 
     res.status(200).json({ message: "Image deleted successfully" });
   } catch (error) {
-    console.error("Error deleting image:", error);
     res.status(500).json({ error: "Image deletion failed", details: error.message });
   }
 };

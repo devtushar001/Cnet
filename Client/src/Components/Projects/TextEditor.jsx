@@ -1,53 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import JoditEditor from "jodit-react";
 import { EscomContext } from "../../Context/escomContext";
 import { toast } from "react-toastify";
 
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, 3, false] }],
-    ["bold", "italic", "underline", "strike"],
-    [{ list: "ordered" }, { list: "bullet" }],
-    ["blockquote", "code-block"],
-    [{ align: [] }],
-    [{ color: [] }, { background: [] }],
-    ["link", "image"],
-    ["clean"], // Removes formatting
-  ],
-};
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "list",
-  "bullet",
-  "blockquote",
-  "code-block",
-  "align",
-  "color",
-  "background",
-  "link",
-  "image",
-];
-
 const TextEditor = () => {
-  const [value, setValue] = useState("");  // Store the editor's content
-  // const [getValue, setGetValue] = useState([]);
-  const {getValue, deleteContent, getFetchData } = useContext(EscomContext);
+  const editor = useRef(null); // Fix: Define ref for JoditEditor
+  const [value, setValue] = useState(""); // Fix: Correct state naming
+
+  const { getValue, deleteContent, getFetchData, backend_ur } = useContext(EscomContext);
 
   // Function to save content to the database
   const saveToDatabase = async () => {
     try {
-      const response = await fetch("http://localhost:30017/api/text-edit/save", {
+      const response = await fetch(`${backend_ur}/api/text-edit/save`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ content: value }), // Send editor content as JSON
+        body: JSON.stringify({ content: value }), // Fix: Use `value` correctly
       });
 
       const data = await response.json();
@@ -60,12 +30,12 @@ const TextEditor = () => {
 
   return (
     <div className="text-editor-container" style={{ maxWidth: "95%", padding: "20px" }}>
-      <ReactQuill
-        theme="snow"
-        value={value}  // Bind the editor to the value state
-        onChange={setValue}  // Update value when the content changes
-        modules={modules}
-        formats={formats}
+      <JoditEditor
+        ref={editor}
+        value={value} // Fix: Use correct state variable
+        tabIndex={1}
+        onBlur={(newContent) => setValue(newContent)} // Fix: Update state correctly
+        onChange={() => { }} // Prevent performance issues
       />
       <button onClick={saveToDatabase} style={{ marginTop: "10px", padding: "10px" }}>
         Save to Database

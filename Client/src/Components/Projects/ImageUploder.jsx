@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./ProjectsStyle/ImageUploader.css";
 import { toast } from "react-toastify";
+import { EscomContext } from "../../Context/escomContext";
 
 const ImageUploader = () => {
   const [image, setImage] = useState(null);
   const [images, setImages] = useState([]);
+  const { backend_url } = useContext(EscomContext);
 
   // Fetch images from the backend
   const fetchImages = async () => {
     try {
-      const response = await fetch("http://localhost:30017/api/images/image");
+      const response = await fetch(`${backend_url}/api/images/image`);
       if (!response.ok) {
         throw new Error("Failed to fetch images");
       }
@@ -33,7 +35,7 @@ const ImageUploader = () => {
     formData.append("image", image);
 
     try {
-      const response = await fetch("http://localhost:30017/api/images/upload", {
+      const response = await fetch(`${backend_url}/api/images/upload`, {
         method: "POST",
         body: formData,
       });
@@ -57,7 +59,7 @@ const ImageUploader = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch("http://localhost:30017/api/images/delete", {
+      const response = await fetch(`${backend_url}/api/images/delete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

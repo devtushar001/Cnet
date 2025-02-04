@@ -21,10 +21,6 @@ const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
 const cloudApiKey = process.env.CLOUDINARY_API_KEY;
 const cloudApiSecret = process.env.CLOUDINARY_API_SECRET;
 
-console.log(cloudName, cloudApiKey, cloudApiSecret)
-
-
-
 if (!port || !mongo_url) {
   throw new Error("Missing required environment variables: PORT or MONGODB_URL");
 }
@@ -66,7 +62,6 @@ app.get('/', (req, res) => {
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
   res.status(500).json({ success: false, message: 'Internal Server Error' });
 });
 
